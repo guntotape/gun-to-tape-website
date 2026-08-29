@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Gun to Tape</title>
-<meta name="description" content="Get in touch with Gun to Tape. Tell us about your athletes, your club or your season, and the film you'd like us to make — from a single promotional video to a full documentary series.">
-<meta property="og:title" content="Contact — Gun to Tape">
-<meta property="og:description" content="Tell us what you'd like on tape. Get in touch with Gun to Tape about your next film.">
+<title>About — Gun to Tape</title>
+<meta name="description" content="The story behind Gun to Tape — founded by a competitive athlete who picked up a camera during an injury layoff and never put it back down.">
+<meta property="og:title" content="About — Gun to Tape">
+<meta property="og:description" content="From the start line to the edit suite: how an injury, a borrowed camera and two years of teaching myself sports videography became Gun to Tape.">
 <link rel="icon" type="image/png" href="assets/gun-to-tape-logo-transparent.png">
 <style>
 
@@ -701,109 +701,80 @@ section{position:relative;}
   .site-footer{padding-top:70px;}
 }
 
+
 /* ============================================
-   CONTACT PAGE — INTRO
+   ABOUT PAGE — ADDITIONS
    ============================================ */
-.contact-intro .container{position:relative;z-index:1;max-width:760px;}
-.contact-intro h1{
-  font-size:clamp(2.4rem,3vw + 1.2rem,3.8rem);
+.story-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:start;}
+.story-text p{color:var(--ink-soft);font-size:1.05rem;line-height:1.8;margin-bottom:22px;}
+.story-text p:last-child{margin-bottom:0;}
+.story-photo{position:relative;}
+.story-photo figure{margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md);}
+.story-photo img{width:100%;display:block;}
+.story-photo figcaption{
+  font-family:var(--font-mono);font-size:0.78rem;color:var(--ink-soft);
+  margin-top:14px;letter-spacing:0.01em;
+}
+.signoff{margin-top:44px;display:flex;align-items:center;gap:16px;}
+.signoff .brush{flex-shrink:0;}
+.signoff-name{font-family:var(--font-display);font-weight:700;font-size:1.05rem;}
+.signoff-role{font-family:var(--font-body);font-style:italic;color:var(--ink-soft);font-size:0.95rem;}
+
+/* About hero — deliberately NOT the index hero's side-by-side grid:
+   stacked eyebrow/heading/lede up top, then one large full-bleed photo
+   with its caption sitting underneath, so the page reads differently
+   from the homepage at a glance. */
+.about-hero{padding:190px 0 0;position:relative;overflow:hidden;background:var(--cream);}
+.about-hero::before{
+  content:'';
+  position:absolute;inset:-10% -10%;
+  background:repeating-linear-gradient(
+    100deg,
+    transparent 0px, transparent 78px,
+    rgba(34,31,26,0.05) 78px, rgba(34,31,26,0.05) 80px
+  );
+  pointer-events:none;
+  mask-image:linear-gradient(180deg, black, transparent 45%);
+}
+.about-hero-intro{position:relative;z-index:1;max-width:680px;}
+.about-hero-intro h1{
+  font-size:clamp(2.6rem,3.6vw + 1.2rem,4.3rem);
   font-weight:800;
-  margin-bottom:22px;
+  margin:22px 0 22px;
   max-width:16ch;
 }
-.contact-intro .lede{font-size:1.15rem;margin-bottom:0;max-width:56ch;}
+.about-hero-intro .lede{max-width:46ch;margin-bottom:36px;font-size:1.2rem;}
+.about-hero-photo{
+  position:relative;z-index:1;
+  width:100%;margin-top:60px;
+  max-height:600px;overflow:hidden;
+}
+.about-hero-photo img{
+  width:100%;display:block;
+  object-fit:cover;object-position:center 32%;
+  max-height:600px;
+}
+.about-hero-caption{
+  padding:18px 0 64px;
+  font-family:var(--font-mono);font-size:0.8rem;color:var(--ink-soft);
+  border-bottom:1px solid var(--line);
+}
 
-/* ============================================
-   CONTACT PAGE — FORM SECTION
-   ============================================ */
-.contact-section{padding:0 0 130px;background:var(--cream-deep);}
-.contact-grid{
-  display:grid;
-  grid-template-columns:0.82fr 1.18fr;
-  gap:36px;
-  align-items:start;
-}
-.contact-info{
-  background:var(--cream);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:38px 32px;
-}
-.contact-info .brush{margin-bottom:22px;}
-.contact-info h3{font-size:1.28rem;margin-bottom:14px;}
-.contact-info p{color:var(--ink-soft);font-size:0.98rem;line-height:1.7;margin-bottom:22px;}
-.contact-info-list{display:flex;flex-direction:column;gap:18px;margin-top:6px;}
-.contact-info-item{display:flex;flex-direction:column;gap:3px;}
-.contact-info-item .label{
-  font-family:var(--font-display);font-weight:700;font-size:0.72rem;
-  letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);
-}
-.contact-info-item a,.contact-info-item span.value{
-  font-family:var(--font-body);font-size:1.02rem;color:var(--ink);
-}
-.contact-info-item a{border-bottom:1.5px solid transparent;transition:border-color .3s var(--ease);}
-.contact-info-item a:hover{border-bottom-color:var(--ink);}
-
-.contact-form-card{
-  background:var(--cream);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:44px 42px;
-  box-shadow:var(--shadow-sm);
-}
-.form-required-note{font-size:0.85rem;color:var(--ink-soft);margin-bottom:28px;}
-.form-required-note .mark{color:var(--flame-deep);}
-
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-.field{margin-bottom:22px;display:flex;flex-direction:column;gap:8px;}
-.field label{
-  font-family:var(--font-display);font-weight:700;font-size:0.82rem;
-  letter-spacing:0.02em;color:var(--ink);
-}
-.field label .mark{color:var(--flame-deep);margin-left:2px;}
-.field label .opt{
-  font-family:var(--font-body);font-weight:400;font-style:italic;
-  color:var(--ink-soft);font-size:0.85rem;margin-left:6px;
-}
-.field input,.field textarea{
-  font-family:var(--font-body);font-size:1rem;color:var(--ink);
-  background:var(--cream-deep);
-  border:1.5px solid var(--line);
-  border-radius:var(--radius);
-  padding:13px 16px;
-  transition:border-color .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
-  width:100%;
-}
-.field textarea{min-height:130px;resize:vertical;line-height:1.6;font-size:0.98rem;}
-.field input::placeholder,.field textarea::placeholder{color:var(--ink-soft);opacity:0.7;}
-.field input:focus,.field textarea:focus{
-  outline:none;border-color:var(--flame-deep);
-  background:var(--cream);
-  box-shadow:0 0 0 3px rgba(254,89,88,0.12);
-}
-.field-hint{font-size:0.85rem;color:var(--ink-soft);line-height:1.5;}
-
-.form-submit-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:10px;}
-.form-note{font-size:0.85rem;color:var(--ink-soft);max-width:34ch;}
-
-.form-success{
-  display:none;margin-top:24px;padding:18px 22px;
-  background:var(--cream-deep);
-  border-left:3px solid var(--gold-deep);
-  border-radius:var(--radius);
-  font-size:0.95rem;color:var(--ink);line-height:1.6;
-}
-.form-success.visible{display:block;}
+.main-nav a[aria-current="page"]::after,
+.mobile-panel a[aria-current="page"]::after{transform:scaleX(1);}
+.footer-col a[aria-current="page"]::after{width:100%;}
 
 @media(max-width:900px){
-  .contact-grid{grid-template-columns:1fr;}
-  .field-row{grid-template-columns:1fr;}
+  .story-grid{grid-template-columns:1fr;gap:36px;}
+  .about-hero-photo{max-height:420px;}
+  .about-hero-photo img{max-height:420px;}
 }
 @media(max-width:560px){
-  .contact-form-card{padding:34px 24px;}
-  .contact-info{padding:30px 24px;}
+  .about-hero{padding-top:150px;}
+  .about-hero-photo{margin-top:40px;max-height:320px;}
+  .about-hero-photo img{max-height:320px;}
+  .about-hero-caption{padding-bottom:50px;}
 }
-
 </style>
 </head>
 <body>
@@ -812,18 +783,18 @@ section{position:relative;}
 <header class="site-header" id="siteHeader">
   <div class="container nav-inner">
     <a href="index.html#top" class="logo-link" aria-label="Gun to Tape — home">
-      <img src="assets/gun-to-tape-logo-transparent.png" alt="Gun to Tape logo — a runner silhouette breaking through a finish line, with the wordmark Gun to Tape">
+      <img src="assets/gun-to-tape-logo-transparent.png" alt="Gun to Tape logo">
     </a>
     <nav class="main-nav" aria-label="Primary">
       <ul>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
         <li><a href="index.html#services">Services</a></li>
         <li><a href="index.html#process">Process</a></li>
         <li><a href="index.html#work">Work</a></li>
-        </ul>
+      </ul>
     </nav>
     <div class="nav-cta">
-      <a href="#contact-form" class="btn btn-primary btn-sm">Start a project</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Start a project</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobilePanel">
       <span></span><span></span><span></span>
@@ -833,7 +804,7 @@ section{position:relative;}
 
 <div class="mobile-panel" id="mobilePanel">
   <ul>
-    <li><a href="about.html">About</a></li>
+    <li><a href="about.html" aria-current="page">About</a></li>
     <li><a href="index.html#services">Services</a></li>
     <li><a href="index.html#process">Process</a></li>
     <li><a href="index.html#work">Work</a></li>
@@ -842,92 +813,83 @@ section{position:relative;}
 
 <main id="top">
 
-<!-- ============ CONTACT INTRO ============ -->
-<section class="hero contact-intro">
-  <div class="container">
+<!-- ============ ABOUT HERO ============ -->
+<section class="about-hero">
+  <div class="container about-hero-intro">
     <div class="hero-eyebrow load-fade" style="animation-delay:.05s">
       <span class="brush" aria-hidden="true"></span>
-      <span class="eyebrow">Gun to Tape</span>
+      <span class="eyebrow">About</span>
     </div>
-    <div class="chapter load-fade" style="animation-delay:.1s">
-      <span class="chapter-time">00:00</span>
-      <span class="chapter-label">Get In Touch</span>
-      <span class="chapter-rule"></span>
+    <h1 class="load-fade" style="animation-delay:.15s">The story behind Gun to Tape</h1>
+    <p class="lede load-fade" style="animation-delay:.25s">I'm Jamie Lilley, the guy behind the camera at Gun to Tape. Before I was filming races, I was running them.</p>
+    <div class="hero-ctas load-fade" style="animation-delay:.35s">
+      <a href="contact.html" class="btn btn-primary">Start a project <span class="btn-arrow">→</span></a>
+      <a href="index.html#work" class="btn btn-ghost">See our work</a>
     </div>
-    <h1 class="load-fade" style="animation-delay:.15s">Tell us what you'd like on tape.</h1>
-    <p class="lede load-fade" style="animation-delay:.25s">Fill in the form below with your details and the service you're after. It could be a single promotional video, an athlete profile film, coverage of one race day, or a full documentary series capturing your whole season. Whatever it is, tell us about it and we'll get back to you.</p>
+  </div>
+  <div class="about-hero-photo load-fade" style="animation-delay:.4s">
+    <img src="assets/race.jpg" alt="Jamie Lilley finishing the FT/Nikkei UK Ekiden relay at Windsor">
+  </div>
+  <div class="container">
+    <p class="about-hero-caption">Crossing the line at the FT &amp; Nikkei UK Ekiden Relay, Windsor</p>
   </div>
 </section>
 
-<!-- ============ CONTACT FORM ============ -->
-<section id="contact-form" class="contact-section">
+<!-- ============ THE STORY ============ -->
+<section id="about" class="about">
   <div class="container">
-    <div class="contact-grid">
+    <div class="chapter reveal">
+      <span class="chapter-time">00:45</span>
+      <span class="chapter-label">The Story</span>
+      <span class="chapter-rule"></span>
+    </div>
+    <h2 class="reveal">Why Gun to Tape exists.</h2>
+    <blockquote class="pull-quote reveal">
+      I've stood on enough start lines to know the story is never just the result. It's everything that happens <em>between the gun and the tape.</em> That's exactly what I wanted to spend my time capturing instead of just watching.
+    </blockquote>
 
-      <div class="contact-info reveal">
-        <span class="brush" aria-hidden="true"></span>
-        <h3>Get in touch directly</h3>
-        <p>Prefer email? <br>Reach us directly and we'll reply as soon as we can.</p>
-        <div class="contact-info-list">
-          <div class="contact-info-item">
-            <span class="label">Email</span>
-            <a href="mailto:guntotape@gmail.com">guntotape@gmail.com</a>
-          </div>
-          <div class="contact-info-item">
-            <span class="label">Based</span>
-            <span class="value">London<br>Filming nationally</span>
-          </div>
-          <div class="contact-info-item">
-            <span class="label">Response time</span>
-            <span class="value">Within 2-3 business days</span>
+    <div class="story-grid reveal">
+      <div class="story-text">
+        <p>I've always been a competitor first. Years of racing on the track and around the country left me wanting to build something of my own inside the sport. I just didn't know yet what that would look like.</p>
+        <p>That changed in 2024, when an injury took me off the track. With time on my hands and nowhere to run, I borrowed my uncle's old camera and started shooting. I had no plan, I just found something to fill the gap while I recovered.</p>
+        <p>Photography quickly turned into an obsession with video. I taught myself sports videography from scratch: how to shoot a race properly, how to cut a story out of a season, how to make the training and the start-line nerves feel like they mattered as much as the finish. Somewhere in that process, it stopped being a distraction from athletics and started being something I cared a lot about.</p>
+        <p>Two years later, after graduating, I decided to stop treating it as a hobby. Gun to Tape is the sports marketing business I always wanted to build, the platform I could use to share the greatest moments sport has to offer.</p>
+        <div class="signoff">
+          <span class="brush" aria-hidden="true"></span>
+          <div>
+            <div class="signoff-name">Jamie Lilley</div>
+            <div class="signoff-role">Founder, Gun to Tape</div>
           </div>
         </div>
       </div>
-
-      <div class="contact-form-card reveal">
-        <form id="contactForm" novalidate>
-          <p class="form-required-note"><span class="mark">*</span> Required field</p>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="name">Name<span class="mark">*</span></label>
-              <input type="text" id="name" name="name" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="company">Company<span class="opt">(optional)</span></label>
-              <input type="text" id="company" name="company" autocomplete="organization">
-            </div>
-          </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="email">Email address<span class="mark">*</span></label>
-              <input type="email" id="email" name="email" autocomplete="email" required>
-            </div>
-            <div class="field">
-              <label for="phone">Phone number<span class="opt">(optional)</span></label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel">
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="service">What would you like from Gun to Tape?<span class="opt">(optional)</span></label>
-            <textarea id="service" name="service" placeholder="e.g. a single promotional video, an athlete profile film, race day coverage, a club or team season film, or a full documentary series covering your season from start to finish..."></textarea>
-            <span class="field-hint">Not sure yet? A rough idea of the athletes, the club and the occasion is a great place to start — we'll help shape the rest.</span>
-          </div>
-
-          <div class="form-submit-row">
-            <button type="submit" class="btn btn-primary">Send enquiry <span class="btn-arrow">→</span></button>
-            <span class="form-note">This opens your email client to send your enquiry to guntotape@gmail.com.</span>
-          </div>
-
-          <p class="form-success" id="formSuccess" role="status">Thanks — your message is ready to send in your email client. If nothing opened, email us directly at <a href="mailto:guntotape@gmail.com">guntotape@gmail.com</a>.</p>
-        </form>
+      <div class="story-photo">
+        <figure>
+          <img src="assets/graduation.jpg" alt="Jamie Lilley graduating from Royal Holloway, University of London">
+        </figure>
+        <figcaption>Graduation day at Royal Holloway, 2026<br>The finish line before the next start.</figcaption>
       </div>
-
     </div>
   </div>
 </section>
+
+<!-- ============ CTA BAND ============ -->
+<section id="contact" class="cta-band">
+  <div class="brush-flourish" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="container">
+    <div class="chapter reveal">
+      <span class="chapter-time">09:40</span>
+      <span class="chapter-label">Let's Talk</span>
+      <span class="chapter-rule"></span>
+    </div>
+    <div class="cta-inner reveal">
+      <h2>Let's put your season on tape.</h2>
+      <p class="lede">Tell us about your athletes, your team, your timeline. We'll build a film around it and make sure it still plays years from now.</p>
+      <a href="contact.html" class="btn btn-primary">Start a project <span class="btn-arrow">→</span></a>
+      <p class="cta-footnote">Or email <a href="mailto:guntotape@gmail.com">guntotape@gmail.com</a> directly</p>
+    </div>
+  </div>
+</section>
+
 
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer">
@@ -945,7 +907,7 @@ section{position:relative;}
       <div class="footer-col">
         <h4>Explore</h4>
         <ul>
-          <li><a href="about.html">About</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#process">Process</a></li>
           <li><a href="index.html#work">Work</a></li>
@@ -1024,35 +986,6 @@ if('IntersectionObserver' in window){
 
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
-
-// Contact form — client-side validation + mailto handoff (no backend on this static site)
-const contactForm = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
-contactForm.addEventListener('submit', function(e){
-  e.preventDefault();
-  if(!contactForm.checkValidity()){
-    contactForm.reportValidity();
-    return;
-  }
-  const data = new FormData(contactForm);
-  const name = (data.get('name') || '').trim();
-  const company = (data.get('company') || '').trim();
-  const email = (data.get('email') || '').trim();
-  const phone = (data.get('phone') || '').trim();
-  const service = (data.get('service') || '').trim();
-
-  let body = 'Name: ' + name + '\n';
-  if(company){ body += 'Company: ' + company + '\n'; }
-  body += 'Email: ' + email + '\n';
-  if(phone){ body += 'Phone: ' + phone + '\n'; }
-  if(service){ body += '\nWhat they would like from Gun to Tape:\n' + service + '\n'; }
-
-  const subject = 'New enquiry from ' + name + ' — Gun to Tape website';
-  const mailtoLink = 'mailto:guntotape@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-
-  formSuccess.classList.add('visible');
-  window.location.href = mailtoLink;
-});
 </script>
 
 </body>
