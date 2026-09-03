@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gun to Tape</title>
-<meta name="description" content="Gun to Tape creates cinematic, long-form video content for athletes, clubs, teams and businesses. Built to stay relevant long after the season ends.">
-<meta property="og:title" content="Gun to Tape — Long-Form Sports Film">
-<meta property="og:description" content="Professional long-form video content for athletes, clubs, teams and businesses. Built to last.">
+<title>Gun to Tape — Work</title>
+<meta name="description" content="Watch every film from Gun to Tape — documentary series, athlete profiles, race day coverage and brand films, all in one place.">
+<meta property="og:title" content="Gun to Tape — Work">
+<meta property="og:description" content="Every documentary series, athlete profile and race film from Gun to Tape.">
 <link rel="icon" type="image/png" href="assets/gun-to-tape-logo-transparent.png">
 <style>
 
@@ -706,20 +706,90 @@ section{position:relative;}
   .site-footer{padding-top:70px;}
 }
 </style>
+<style>
+/* ============================================
+   WORK PAGE — VIDEO HERO
+   ============================================ */
+.video-hero{padding:140px 0 90px;background:var(--cream);position:relative;overflow:hidden;}
+.hero-frame{aspect-ratio:16/9;margin-bottom:0;box-shadow:var(--shadow-md);}
+.hero-frame:hover .play{background:rgba(246,241,231,0.9);transform:translate(-50%,-50%) scale(1.08);}
+.hero-frame:hover .play svg{fill:var(--ink);}
+.play--lg{width:84px;height:84px;}
+.play--lg svg{width:26px;height:26px;}
+.hero-video-meta{max-width:760px;margin-top:36px;}
+.hero-video-meta .work-tag{margin-bottom:16px;}
+.hero-video-meta h1{font-size:clamp(2rem,2vw + 1.4rem,3rem);margin-bottom:18px;}
+.hero-video-meta .lede{font-size:1.15rem;max-width:62ch;}
+
+/* ============================================
+   WORK PAGE — DOCUMENTARY SERIES ROWS
+   ============================================ */
+.series-section{padding:100px 0;background:var(--cream);}
+.series-section.alt{background:var(--cream-deep);}
+.series-head{max-width:720px;margin-bottom:40px;}
+.series-head h2{font-size:clamp(1.8rem,1.6vw + 1.3rem,2.6rem);margin-bottom:14px;}
+.series-head .lede{font-size:1.05rem;}
+
+.series-row{
+  display:flex;
+  gap:24px;
+  overflow-x:auto;
+  scroll-snap-type:x proximity;
+  padding-bottom:16px;
+  margin:0 -40px;
+  padding-left:40px;
+  padding-right:40px;
+  scrollbar-width:thin;
+  scrollbar-color:var(--ink-soft) transparent;
+}
+.series-row::-webkit-scrollbar{height:6px;}
+.series-row::-webkit-scrollbar-thumb{background:var(--ink-soft);border-radius:4px;}
+.series-row::-webkit-scrollbar-track{background:transparent;}
+
+.series-card{flex:0 0 340px;scroll-snap-align:start;}
+.series-card .work-thumb{aspect-ratio:16/9;margin-bottom:14px;}
+.series-card .work-tag{margin-bottom:10px;}
+.series-card h3{font-size:1.02rem;line-height:1.35;}
+
+.series-empty{
+  font-family:var(--font-body);font-style:italic;color:var(--ink-soft);
+  padding:30px 0;
+}
+
+@media(max-width:620px){
+  .series-card{flex-basis:280px;}
+  .series-row{margin:0 -24px;padding-left:24px;padding-right:24px;}
+}
+
+/* ============================================
+   WORK PAGE — ALL VIDEOS GRID
+   ============================================ */
+.all-work{padding:130px 0;background:var(--cream-deep);}
+.all-work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;}
+
+@media(max-width:1100px){.all-work-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:820px){.all-work-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.all-work-grid{grid-template-columns:1fr;}}
+
+@media(max-width:560px){
+  .video-hero,.series-section,.all-work{padding-top:90px;padding-bottom:90px;}
+  .video-hero{padding-top:110px;}
+}
+</style>
 </head>
 <body>
 
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="siteHeader">
   <div class="container nav-inner">
-    <a href="#top" class="logo-link" aria-label="Gun to Tape — home">
+    <a href="index.html" class="logo-link" aria-label="Gun to Tape — home">
       <img src="assets/gun-to-tape-logo-transparent.png" alt="Gun to Tape logo — a runner silhouette breaking through a finish line, with the wordmark Gun to Tape">
     </a>
     <nav class="main-nav" aria-label="Primary">
       <ul>
         <li><a href="about.html">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#process">Process</a></li>
         <li><a href="work.html">Work</a></li>
       </ul>
     </nav>
@@ -735,259 +805,42 @@ section{position:relative;}
 <div class="mobile-panel" id="mobilePanel">
   <ul>
     <li><a href="about.html">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#process">Process</a></li>
     <li><a href="work.html">Work</a></li>
   </ul>
 </div>
 
 <main id="top">
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="container hero-grid">
-    <div class="hero-content">
-      <div class="hero-eyebrow load-fade" style="animation-delay:.05s">
-        <span class="brush" aria-hidden="true"></span>
-        <span class="eyebrow">Gun to Tape</span>
-      </div>
-      <h1 class="load-fade" style="animation-delay:.15s">From the starting gun to the video tape.</h1>
-      <p class="lede load-fade" style="animation-delay:.25s">Gun to Tape makes cinematic, long-form video for athletes, clubs, teams and businesses. Built to stay relevant long after the season ends.</p>
-      <div class="hero-ctas load-fade" style="animation-delay:.35s">
-        <a href="contact.html" class="btn btn-primary">Start a project <span class="btn-arrow">→</span></a>
-        <a href="#work" class="btn btn-ghost">See our work</a>
-      </div>
-      <div class="hero-scrubber load-fade" style="animation-delay:.45s">
-        <div class="scrubber-end">
-          <span class="label">GUN</span>
-          <span class="time">00:00:00</span>
-        </div>
-        <div class="scrubber-track">
-          <div class="scrubber-fill"></div>
-          <div class="scrubber-playhead"></div>
-        </div>
-        <div class="scrubber-end right">
-          <span class="label">TAPE</span>
-          <span class="time infinity">∞</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero-visual load-fade" style="animation-delay:.2s">
-      <div class="glow" aria-hidden="true"></div>
-      <img src="assets/gun-to-tape-logo-transparent.png" alt="">
-    </div>
-  </div>
-</section>
-
-<!-- ============ ABOUT / PHILOSOPHY ============ -->
-<section id="about" class="about">
+<!-- ============ VIDEO HERO — LATEST RELEASE ============ -->
+<section class="video-hero">
   <div class="container">
     <div class="chapter reveal">
-      <span class="chapter-time">00:45</span>
-      <span class="chapter-label">The Philosophy</span>
+      <span class="chapter-time">00:00</span>
+      <span class="chapter-label">Latest Release</span>
       <span class="chapter-rule"></span>
     </div>
-    <h2 class="reveal">Two words.<br>One idea.</h2>
-    <blockquote class="pull-quote reveal">
-      In athletics, <em>Gun to Tape</em> is the whole race. The full distance, timed and true, start to finish. We borrowed the name because it's also what we make: tape.<br>Real footage, properly shot and properly cut, that still means something years from now.
-    </blockquote>
-    <div class="principles-grid reveal-stagger">
-      <div class="principle">
-        <span class="brush" aria-hidden="true"></span>
-        <h3>Built to last</h3>
-        <p>Long-form content, re-cut for any team, any year, any anniversary that comes after.</p>
-      </div>
-      <div class="principle">
-        <span class="brush" aria-hidden="true"></span>
-        <h3>Shot like a film</h3>
-        <p>Multi-camera coverage, professional sound, professional light. By a business that understands the sport.</p>
-      </div>
-      <div class="principle">
-        <span class="brush" aria-hidden="true"></span>
-        <h3>Story before highlights</h3>
-        <p>The training, the setbacks, the start-line nerves. Not just the medal at the finish.</p>
-      </div>
-    </div>
+    <div id="heroVideoSlot" class="reveal"></div>
   </div>
 </section>
 
-<!-- ============ SERVICES ============ -->
-<section id="services" class="services">
+<!-- ============ DOCUMENTARY SERIES (rendered from the `series` array in the script below) ============ -->
+<div id="seriesSlot"></div>
+
+<!-- ============ ALL VIDEOS — 4x3 ARCHIVE GRID ============ -->
+<section class="all-work">
   <div class="container">
     <div class="chapter reveal">
-      <span class="chapter-time">02:10</span>
-      <span class="chapter-label">What We Make</span>
+      <span class="chapter-time">07:15</span>
+      <span class="chapter-label">The Archive</span>
       <span class="chapter-rule"></span>
     </div>
     <div class="section-head reveal">
-      <h2>Content that earns its shelf life.</h2>
-      <p class="lede">Six formats, one standard.<br>Every film built to be watched again long after it's published.</p>
+      <h2>Every one-off, in one place.</h2>
+      <p class="lede">Athlete profiles, race day coverage and brand films. The standalone stories that sit alongside our documentary series.</p>
     </div>
-    <div class="services-grid reveal-stagger">
-      <div class="service-card">
-        <svg class="icon" viewBox="0 0 32 32"><circle cx="16" cy="11" r="6"></circle><path d="M4 28c0-7 5-11 12-11s12 4 12 11"></path></svg>
-        <h3>Athlete Profile Films</h3>
-        <p>Character-led documentary shorts and features that tell an athlete's story beyond the results page.</p>
-      </div>
-      <div class="service-card">
-        <svg class="icon" viewBox="0 0 32 32"><circle cx="16" cy="18" r="11"></circle><line x1="16" y1="18" x2="16" y2="11"></line><line x1="16" y1="18" x2="21" y2="20"></line><line x1="12" y1="3" x2="20" y2="3"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg>
-        <h3>Race Day Coverage</h3>
-        <p>Multi-camera cinematic coverage from the call room to the finish tape, cut for broadcast and archive alike.</p>
-      </div>
-      <div class="service-card">
-        <svg class="icon" viewBox="0 0 32 32"><circle cx="16" cy="8" r="4.5"></circle><circle cx="8" cy="23" r="4.5"></circle><circle cx="24" cy="23" r="4.5"></circle></svg>
-        <h3>Club &amp; Team Season Films</h3>
-        <p>A full season, captured and edited into a lasting record for members, sponsors and history.</p>
-      </div>
-      <div class="service-card">
-        <svg class="icon" viewBox="0 0 32 32"><circle cx="16" cy="12" r="8"></circle><path d="M11 19l-3 10 8-4 8 4-3-10"></path></svg>
-        <h3>Sponsor &amp; Partner Films</h3>
-        <p>Brand-commissioned films built around athletes and performances.</p>
-      </div>
-      <div class="service-card">
-        <svg class="icon" viewBox="0 0 32 32"><rect x="4" y="12" width="24" height="16" rx="1.5"></rect><path d="M4 12l3-7h5l-3 7z"></path><path d="M12 12l3-7h5l-3 7z"></path><path d="M20 12l3-7h4l-2 7z"></path></svg>
-        <h3>Training &amp; Process Series</h3>
-        <p>A long-form behind-the-scenes series following a training block from the first session to the start line.</p>
-      </div>
-      <div class="service-card">
-        <svg class="icon" viewBox="0 0 32 32"><path d="M10 5h12v8a6 6 0 01-12 0V5z"></path><path d="M10 7H5v2a5 5 0 005 5"></path><path d="M22 7h5v2a5 5 0 01-5 5"></path><line x1="16" y1="19" x2="16" y2="24"></line><path d="M11 28h10"></path><path d="M12.5 24h7l1 4h-9z"></path></svg>
-        <h3>Championship Documentaries</h3>
-        <p>Feature-length films for major meets, built to be watched again for years, not just one season.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PROCESS ============ -->
-<section id="process" class="process">
-  <div class="container">
-    <div class="chapter reveal">
-      <span class="chapter-time">04:30</span>
-      <span class="chapter-label">How We Work</span>
-      <span class="chapter-rule"></span>
-    </div>
-    <div class="section-head reveal">
-      <h2>From brief to tape.</h2>
-      <p class="lede">Four stages, every time.<br>The same discipline whether it's one race or a whole season.</p>
-    </div>
-    <ol class="process-timeline reveal-stagger">
-      <li class="process-step">
-        <span class="time">00:00</span>
-        <h3>Brief</h3>
-        <p>We start with the story: the athletes, the season, the reason the film needs to exist.</p>
-      </li>
-      <li class="process-step">
-        <span class="time">00:20</span>
-        <h3>Shoot</h3>
-        <p>On location for as long as the story needs. Race day, training ground, home track. Until dawn if necessary.</p>
-      </li>
-      <li class="process-step">
-        <span class="time">00:35</span>
-        <h3>Cut</h3>
-        <p>Editing, colour and sound, shaped into a film that holds up on the big screen or the small one.</p>
-      </li>
-      <li class="process-step">
-        <span class="time">00:50</span>
-        <h3>Deliver</h3>
-        <p>Long-form content plus every clip you need. Built to be pulled out and reused for years.</p>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ============ WORK ============ -->
-<section id="work" class="work">
-  <div class="container">
-    <div class="chapter reveal">
-      <span class="chapter-time">06:15</span>
-      <span class="chapter-label">Selected Work</span>
-      <span class="chapter-rule"></span>
-    </div>
-    <div class="section-head reveal">
-      <h2>A few reels from the archive.</h2>
-      <p class="lede">A sample of the films, series and season-long records we've helped clubs and athletes build.</p>
-    </div>
-    <div class="work-grid reveal-stagger">
-      <article class="work-card">
-        <div class="work-thumb grad-a" data-yt="YOUR_VIDEO_ID_ROYAL_HOLLOWAY" role="button" tabindex="0" aria-label="Play video: Royal Holloway: A Season on Film">
-          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_ROYALHOLLOWAY/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg></span>
-        </div>
-        <span class="work-tag">Documentary Series · 6 parts · Episode 1</span>
-        <h3>Royal Holloway: A Season on Film</h3>
-      </article>
-      <article class="work-card">
-        <div class="work-thumb grad-b" data-yt="YOUR_VIDEO_ID_LOUISASWANN" role="button" tabindex="0" aria-label="Play video: From Track to Road | Louisa Swann">
-          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_LOUISASWANN/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg></span>
-        </div>
-        <span class="work-tag">Athlete Profile · 13 min</span>
-        <h3>From Track to Road | Louisa Swann</h3>
-      </article>
-      <article class="work-card">
-        <div class="work-thumb grad-a" data-yt="YOUR_VIDEO_ID_LUCARELAY" role="button" tabindex="0" aria-label="Play video: LUCA XC Relay Championships">
-          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_LUCARELAY/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg></span>
-        </div>
-        <span class="work-tag">Race Day Film · 24 min</span>
-        <h3>LUCA XC Relay Championships</h3>
-      </article>
-      <article class="work-card">
-        <div class="work-thumb grad-b" data-yt="YOUR_VIDEO_ID_TEAMGB" role="button" tabindex="0" aria-label="Play video: The Cost to Compete: Team GB">
-          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_TEAMGB/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg></span>
-        </div>
-        <span class="work-tag">Training Series · 4 parts · Episode 1</span>
-        <h3>The Cost to Compete: Team GB</h3>
-      </article>
-      <article class="work-card">
-        <div class="work-thumb grad-a" data-yt="YOUR_VIDEO_ID_SCULLYPHYSIO" role="button" tabindex="0" aria-label="Play video: Scully Physio">
-          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_SCULLYPHYSIO/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg></span>
-        </div>
-        <span class="work-tag">Promotional Video · 10 min</span>
-        <h3>Scully Physio</h3>
-      </article>
-      <article class="work-card">
-        <div class="work-thumb grad-b" data-yt="YOUR_VIDEO_ID_JAMIELILLEY" role="button" tabindex="0" aria-label="Play video: Back on Track | Jamie Lilley">
-          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_JAMIELILLEY/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg></span>
-        </div>
-        <span class="work-tag">Athlete Profile · 15 min</span>
-        <h3>Back on Track | Jamie Lilley</h3>
-      </article>
-    </div>
-    <div class="work-more reveal">
-      <a href="work.html" class="btn btn-primary">Watch all our videos <span class="btn-arrow">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TESTIMONIALS ============ -->
-<section class="testimonials">
-  <div class="container">
-    <div class="chapter reveal">
-      <span class="chapter-time">08:00</span>
-      <span class="chapter-label">What Clients Say</span>
-      <span class="chapter-rule"></span>
-    </div>
-    <div class="section-head reveal">
-      <h2>The Reviews.</h2>
-    </div>
-    <div class="testi-grid reveal-stagger">
-      <div class="testi-card">
-        <svg class="quote-mark" aria-hidden="true" viewBox="0 0 40 28"><path d="M0 16c0-7 4-12 11-14l2 4c-5 2-7 5-7 9h6v11H0V16z"/><path d="M21 16c0-7 4-12 11-14l2 4c-5 2-7 5-7 9h6v11H21V16z"/></svg>
-        <blockquote>They didn't just cover the race, they captured the whole season. We're still using the film two years later.</blockquote>
-        <cite>Head Coach</cite>
-        <span class="role">Club Athletics Programme</span>
-      </div>
-      <div class="testi-card">
-        <svg class="quote-mark" aria-hidden="true" viewBox="0 0 40 28"><path d="M0 16c0-7 4-12 11-14l2 4c-5 2-7 5-7 9h6v11H0V16z"/><path d="M21 16c0-7 4-12 11-14l2 4c-5 2-7 5-7 9h6v11H21V16z"/></svg>
-        <blockquote>It looked and felt like a proper documentary, not a highlights reel — exactly the tone our partners needed to see.</blockquote>
-        <cite>Marketing Lead</cite>
-        <span class="role">Athlete Management Group</span>
-      </div>
-    </div>
+    <div id="allWorkGrid" class="all-work-grid reveal-stagger"></div>
   </div>
 </section>
 
@@ -1009,16 +862,6 @@ section{position:relative;}
   </div>
 </section>
 
-<!-- ============ FINISH TAPE MARQUEE ============ -->
-<div class="finish-tape" aria-hidden="true">
-  <div class="tape-track">
-    <span>Gun to Tape</span><span>Long-Form Sports Content</span><span>guntotape@gmail.com</span><span>Built to Last</span>
-    <span>Gun to Tape</span><span>Long-Form Sports Content</span><span>guntotape@gmail.com</span><span>Built to Last</span>
-  </div>
-</div>
-
-</main>
-
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer">
   <div class="container">
@@ -1036,8 +879,8 @@ section{position:relative;}
         <h4>Explore</h4>
         <ul>
           <li><a href="about.html">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#process">Process</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#process">Process</a></li>
           <li><a href="work.html">Work</a></li>
         </ul>
       </div>
@@ -1058,6 +901,234 @@ section{position:relative;}
     </div>
   </div>
 </footer>
+
+<script>
+/* ============================================================
+   VIDEO DATA — this is the only part of the page you need to
+   touch to add, remove or reorder videos.
+
+   For every video below, `yt` accepts EITHER a full YouTube
+   link (a youtu.be/... link, a youtube.com/watch?v=... link, a
+   share link with ?si=... on the end, etc.) OR just the bare
+   11-character video ID — paste whichever you have, the script
+   figures out the real ID either way.
+
+   TO ADD A NEW EPISODE TO A SERIES: paste it as the FIRST item
+   in that series' `episodes` array (right after the opening
+   `episodes: [`). New episodes always appear at the very start
+   (left-hand end) of that series' row. Nothing needs to be
+   removed or renumbered, and — because the row only ever
+   renders the videos actually listed here — there are never
+   any empty placeholder slots sitting on the page.
+
+   TO ADD A NEW ONE-OFF FILM (athlete profile, race day film,
+   brand film): paste it as the FIRST item in the `allWork`
+   array below, the same way. It appears at the top-left of the
+   grid, pushing everything else along by one.
+   ============================================================ */
+
+// The single big video promoted at the top of the page —
+// swap in whatever your newest or biggest release is.
+const heroFeature = {
+  yt: 'YOUR_VIDEO_ID_TEAMGB',
+  tag: 'Latest Release · Training Series · Episode 1',
+  title: 'The Cost to Compete: Team GB',
+  description: 'What it actually costs, financially and personally, to chase a Team GB vest. The opening episode of our new training series, following three athletes through a season of funding gaps, sacrifice and selection pressure.'
+};
+
+// One entry per documentary series. Each renders as its own row.
+// Add a new series by adding a new object to this array.
+const series = [
+  {
+    title: 'Royal Holloway: A Season on Film',
+    chapterTime: '02:15',
+    chapterLabel: 'Documentary Series',
+    lede: 'Six parts, one season. Following Royal Holloway’s athletics programme from pre-season training through to the championship meets that decided it.',
+    episodes: [
+      // newest first — add new episodes above this line
+      { yt: 'YOUR_VIDEO_ID_ROYAL_HOLLOWAY', label: 'Episode 1' }
+    ]
+  },
+  {
+    title: 'The Cost to Compete: Team GB',
+    chapterTime: '04:45',
+    chapterLabel: 'Training Series',
+    lede: 'What it actually costs to chase a Team GB vest. Four episodes on funding, sacrifice and the long road to selection.',
+    episodes: [
+      // newest first — add new episodes above this line
+      { yt: 'YOUR_VIDEO_ID_TEAMGB', label: 'Episode 1' }
+    ]
+  }
+];
+
+// One-off athlete profiles, race day films and brand films —
+// the 4-wide grid below the series rows.
+const allWork = [
+  // newest first — add new films above this line
+  { yt: 'YOUR_VIDEO_ID_LOUISASWANN', tag: 'Athlete Profile · 13 min', title: 'From Track to Road | Louisa Swann' },
+  { yt: 'YOUR_VIDEO_ID_LUCARELAY', tag: 'Race Day Film · 24 min', title: 'LUCA XC Relay Championships' },
+  { yt: 'YOUR_VIDEO_ID_SCULLYPHYSIO', tag: 'Brand Film · 10 min', title: 'Scully Physio' },
+  { yt: 'YOUR_VIDEO_ID_JAMIELILLEY', tag: 'Athlete Profile · 15 min', title: 'Back on Track | Jamie Lilley' },
+{ yt: 'YOUR_VIDEO_ID_LOUISASWANN', tag: 'Athlete Profile · 13 min', title: 'From Track to Road | Louisa Swann' },
+  { yt: 'YOUR_VIDEO_ID_LUCARELAY', tag: 'Race Day Film · 24 min', title: 'LUCA XC Relay Championships' },
+  { yt: 'YOUR_VIDEO_ID_SCULLYPHYSIO', tag: 'Brand Film · 10 min', title: 'Scully Physio' },
+  { yt: 'YOUR_VIDEO_ID_JAMIELILLEY', tag: 'Athlete Profile · 15 min', title: 'Back on Track | Jamie Lilley' }
+];
+
+/* ============================================================
+   RENDERING — builds the DOM from the data above. You shouldn't
+   need to edit anything below this line.
+   ============================================================ */
+
+function makeThumb(rawId, ariaLabel, extraClasses){
+  const div = document.createElement('div');
+  div.className = ['work-thumb'].concat(extraClasses || []).join(' ');
+  div.setAttribute('data-yt', rawId);
+  div.setAttribute('role', 'button');
+  div.setAttribute('tabindex', '0');
+  div.setAttribute('aria-label', 'Play video: ' + ariaLabel);
+
+  const img = document.createElement('img');
+  img.loading = 'lazy';
+  img.alt = '';
+  img.src = 'https://img.youtube.com/vi/' + rawId + '/hqdefault.jpg';
+  img.onerror = function(){ this.style.display = 'none'; };
+
+  const play = document.createElement('span');
+  play.className = (extraClasses || []).includes('hero-frame') ? 'play play--lg' : 'play';
+  play.innerHTML = '<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg>';
+
+  div.appendChild(img);
+  div.appendChild(play);
+  return div;
+}
+
+function renderHero(){
+  const slot = document.getElementById('heroVideoSlot');
+  if(!slot) return;
+
+  const thumb = makeThumb(heroFeature.yt, heroFeature.title, ['hero-frame', 'grad-a']);
+
+  const meta = document.createElement('div');
+  meta.className = 'hero-video-meta';
+
+  const tag = document.createElement('span');
+  tag.className = 'work-tag';
+  tag.textContent = heroFeature.tag;
+
+  const h1 = document.createElement('h1');
+  h1.textContent = heroFeature.title;
+
+  const p = document.createElement('p');
+  p.className = 'lede';
+  p.textContent = heroFeature.description;
+
+  meta.appendChild(tag);
+  meta.appendChild(h1);
+  meta.appendChild(p);
+
+  slot.appendChild(thumb);
+  slot.appendChild(meta);
+}
+
+function renderSeries(){
+  const wrap = document.getElementById('seriesSlot');
+  if(!wrap) return;
+
+  series.forEach((s, i) => {
+    const section = document.createElement('section');
+    section.className = 'series-section' + (i % 2 === 0 ? ' alt' : '');
+
+    const container = document.createElement('div');
+    container.className = 'container';
+
+    const chapter = document.createElement('div');
+    chapter.className = 'chapter reveal';
+    chapter.innerHTML = '<span class="chapter-time">' + s.chapterTime + '</span>' +
+      '<span class="chapter-label">' + s.chapterLabel + '</span>' +
+      '<span class="chapter-rule"></span>';
+
+    const head = document.createElement('div');
+    head.className = 'series-head reveal';
+
+    const h2 = document.createElement('h2');
+    h2.textContent = s.title;
+
+    const lede = document.createElement('p');
+    lede.className = 'lede';
+    lede.textContent = s.lede;
+
+    head.appendChild(h2);
+    head.appendChild(lede);
+
+    container.appendChild(chapter);
+    container.appendChild(head);
+
+    if(s.episodes && s.episodes.length){
+      const row = document.createElement('div');
+      row.className = 'series-row reveal-stagger';
+
+      s.episodes.forEach((ep, epIndex) => {
+        const card = document.createElement('article');
+        card.className = 'series-card';
+
+        const thumb = makeThumb(ep.yt, s.title + ' — ' + ep.label, [epIndex % 2 === 0 ? 'grad-a' : 'grad-b']);
+
+        const tag = document.createElement('span');
+        tag.className = 'work-tag';
+        tag.textContent = ep.label;
+        if(epIndex % 2 === 1) tag.style.background = 'var(--flame)';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = s.title;
+
+        card.appendChild(thumb);
+        card.appendChild(tag);
+        card.appendChild(h3);
+        row.appendChild(card);
+      });
+
+      container.appendChild(row);
+    } else {
+      const empty = document.createElement('p');
+      empty.className = 'series-empty';
+      empty.textContent = 'New episodes coming soon.';
+      container.appendChild(empty);
+    }
+
+    section.appendChild(container);
+    wrap.appendChild(section);
+  });
+}
+
+function renderAllWork(){
+  const grid = document.getElementById('allWorkGrid');
+  if(!grid) return;
+
+  allWork.forEach((item, i) => {
+    const card = document.createElement('article');
+    card.className = 'work-card';
+
+    const thumb = makeThumb(item.yt, item.title, [i % 2 === 0 ? 'grad-a' : 'grad-b']);
+
+    const tag = document.createElement('span');
+    tag.className = 'work-tag';
+    tag.textContent = item.tag;
+
+    const h3 = document.createElement('h3');
+    h3.textContent = item.title;
+
+    card.appendChild(thumb);
+    card.appendChild(tag);
+    card.appendChild(h3);
+    grid.appendChild(card);
+  });
+}
+
+renderHero();
+renderSeries();
+renderAllWork();
+</script>
 
 <script>
 // Sticky header shrink/blur on scroll

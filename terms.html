@@ -767,7 +767,7 @@ section{position:relative;}
 .terms-toc a:hover,.terms-toc a.active{background:var(--cream);color:var(--ink);}
 .terms-toc a.active .n{color:var(--gold-deep);}
 
-.terms-content{max-width:720px;}
+.terms-content{max-width:720px;min-width:0;}
 .clause{padding:44px 0;border-top:1px solid var(--line);scroll-margin-top:110px;}
 .clause:first-of-type{border-top:none;padding-top:8px;}
 .clause-head{display:flex;align-items:baseline;gap:16px;margin-bottom:20px;}
@@ -805,6 +805,16 @@ section{position:relative;}
   .terms-preamble{padding:26px 24px;}
   .clause h2{font-size:1.35rem;}
 }
+
+/* Contact CTA link contains a long unbreakable string (name + email + arrow).
+   .btn defaults to white-space:nowrap, which on narrow phones forced this
+   button — and everything sharing its grid column — wider than the
+   viewport, clipping text on the right. Let it wrap instead. */
+.terms-content .btn-primary{
+  white-space:normal;
+  text-align:center;
+  gap:6px 10px;
+}
 </style>
 </head>
 <body>
@@ -820,7 +830,7 @@ section{position:relative;}
         <li><a href="about.html">About</a></li>
         <li><a href="index.html#services">Services</a></li>
         <li><a href="index.html#process">Process</a></li>
-        <li><a href="index.html#work">Work</a></li>
+        <li><a href="work.html">Work</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
@@ -837,7 +847,7 @@ section{position:relative;}
     <li><a href="about.html">About</a></li>
     <li><a href="index.html#services">Services</a></li>
     <li><a href="index.html#process">Process</a></li>
-    <li><a href="index.html#work">Work</a></li>
+    <li><a href="work.html">Work</a></li>
   </ul>
 </div>
 
@@ -1055,7 +1065,7 @@ section{position:relative;}
           <li><a href="about.html">About</a></li>
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#process">Process</a></li>
-          <li><a href="index.html#work">Work</a></li>
+          <li><a href="work.html">Work</a></li>
         </ul>
       </div>
       <div class="footer-col">
