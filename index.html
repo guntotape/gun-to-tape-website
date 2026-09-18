@@ -516,7 +516,7 @@ section{position:relative;}
 .work-card{cursor:default;}
 .work-thumb{
   position:relative;
-  aspect-ratio:16/10;
+  aspect-ratio:16/9;
   border-radius:var(--radius);
   overflow:hidden;
   margin-bottom:18px;
@@ -909,16 +909,16 @@ section{position:relative;}
     </div>
     <div class="work-grid reveal-stagger">
       <article class="work-card">
-        <div class="work-thumb grad-a" data-yt="YOUR_VIDEO_ID_ROYAL_HOLLOWAY" role="button" tabindex="0" aria-label="Play video: Royal Holloway: A Season on Film">
-          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_ROYALHOLLOWAY/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+        <div class="work-thumb grad-a" data-yt="https://youtu.be/zECPoe6kpuI" role="button" tabindex="0" aria-label="Play video: Chase the Sun | Louisa Swann">
+          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_ROYALHOLLOWAY/maxresdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
           <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg></span>
         </div>
-        <span class="work-tag">Documentary Series · 6 parts · Episode 1</span>
+        <span class="work-tag">Race Day Film · 3 min</span>
         <h3>Royal Holloway: A Season on Film</h3>
       </article>
       <article class="work-card">
         <div class="work-thumb grad-b" data-yt="YOUR_VIDEO_ID_LOUISASWANN" role="button" tabindex="0" aria-label="Play video: From Track to Road | Louisa Swann">
-          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_LOUISASWANN/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_LOUISASWANN/maxresdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
           <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg></span>
         </div>
         <span class="work-tag">Athlete Profile · 13 min</span>
@@ -926,7 +926,7 @@ section{position:relative;}
       </article>
       <article class="work-card">
         <div class="work-thumb grad-a" data-yt="YOUR_VIDEO_ID_LUCARELAY" role="button" tabindex="0" aria-label="Play video: LUCA XC Relay Championships">
-          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_LUCARELAY/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_LUCARELAY/maxresdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
           <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg></span>
         </div>
         <span class="work-tag">Race Day Film · 24 min</span>
@@ -934,7 +934,7 @@ section{position:relative;}
       </article>
       <article class="work-card">
         <div class="work-thumb grad-b" data-yt="YOUR_VIDEO_ID_TEAMGB" role="button" tabindex="0" aria-label="Play video: The Cost to Compete: Team GB">
-          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_TEAMGB/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_TEAMGB/maxresdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
           <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg></span>
         </div>
         <span class="work-tag">Training Series · 4 parts · Episode 1</span>
@@ -942,7 +942,7 @@ section{position:relative;}
       </article>
       <article class="work-card">
         <div class="work-thumb grad-a" data-yt="YOUR_VIDEO_ID_SCULLYPHYSIO" role="button" tabindex="0" aria-label="Play video: Scully Physio">
-          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_SCULLYPHYSIO/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_SCULLYPHYSIO/maxresdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
           <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg></span>
         </div>
         <span class="work-tag">Promotional Video · 10 min</span>
@@ -950,7 +950,7 @@ section{position:relative;}
       </article>
       <article class="work-card">
         <div class="work-thumb grad-b" data-yt="YOUR_VIDEO_ID_JAMIELILLEY" role="button" tabindex="0" aria-label="Play video: Back on Track | Jamie Lilley">
-          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_JAMIELILLEY/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_JAMIELILLEY/maxresdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
           <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"></path></svg></span>
         </div>
         <span class="work-tag">Athlete Profile · 15 min</span>
@@ -1138,7 +1138,14 @@ document.querySelectorAll('.work-thumb[data-yt]').forEach(thumb => {
   const hasRealVideo = /^[\w-]{11}$/.test(id);
   if(img){
     if(hasRealVideo){
-      img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+      // maxresdefault is a true HD still, but not every video has one —
+      // if it 404s, fall back to the smaller (but still solid) hqdefault,
+      // and only give up on the image entirely if that fails too.
+      img.src = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+      img.onerror = function(){
+        this.onerror = function(){ this.style.display = 'none'; };
+        this.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+      };
     } else {
       img.remove();
     }

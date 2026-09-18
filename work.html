@@ -516,7 +516,7 @@ section{position:relative;}
 .work-card{cursor:default;}
 .work-thumb{
   position:relative;
-  aspect-ratio:16/10;
+  aspect-ratio:16/9;
   border-radius:var(--radius);
   overflow:hidden;
   margin-bottom:18px;
@@ -956,38 +956,45 @@ section{position:relative;}
    brand film): paste it as the FIRST item in the `allWork`
    array below, the same way. It appears at the top-left of the
    grid, pushing everything else along by one.
+
+   Every bit of text below is wrapped in double quotes ("...").
+   That's deliberate — it means you can type apostrophes (it's,
+   Swann's, the athletes' stories) straight into any title, tag
+   or description with no special handling. The only character
+   to avoid inside these is a literal double quote ("); if you
+   ever need one, use a curly one (" or ") instead.
    ============================================================ */
 
 // The single big video promoted at the top of the page —
 // swap in whatever your newest or biggest release is.
 const heroFeature = {
-  yt: 'https://youtu.be/zECPoe6kpuI',
-  tag: 'Latest Release · Race Day Film · 3 min',
-  title: 'Chase the Sun | Louisa Swann',
-  description: 'A short film documenting Louisa Swann's 10k race in Battersea Park. Part of her build towards a sub-40 minute 10k.'
+  yt: "https://youtu.be/zECPoe6kpuI",
+  tag: "Latest Release · Race Day Film · 3 min",
+  title: "Chase the Sun | Louisa Swann",
+  description: "An exclusive behind-the-scenes look at what it takes to make the podium at Battersea Park. Part of Louisa Swann's build towards a sub-40 minute 10k."
 };
 
 // One entry per documentary series. Each renders as its own row.
 // Add a new series by adding a new object to this array.
 const series = [
   {
-    title: 'Royal Holloway: A Season on Film',
-    chapterTime: '02:15',
-    chapterLabel: 'Documentary Series',
-    lede: 'Six parts, one season. Following Royal Holloway’s athletics programme from pre-season training through to the championship meets that decided it.',
+    title: "Royal Holloway: A Season on Film",
+    chapterTime: "02:15",
+    chapterLabel: "Documentary Series",
+    lede: "Six parts, one season. Following Royal Holloway's athletics programme from pre-season training through to the championship meets that decided it.",
     episodes: [
       // newest first — add new episodes above this line
-      { yt: 'YOUR_VIDEO_ID_ROYAL_HOLLOWAY', label: 'Episode 1' }
+      { yt: "YOUR_VIDEO_ID_ROYAL_HOLLOWAY", label: "Episode 1" }
     ]
   },
   {
-    title: 'The Cost to Compete: Team GB',
-    chapterTime: '04:45',
-    chapterLabel: 'Training Series',
-    lede: 'What it actually costs to chase a Team GB vest. Four episodes on funding, sacrifice and the long road to selection.',
+    title: "The Cost to Compete: Team GB",
+    chapterTime: "04:45",
+    chapterLabel: "Training Series",
+    lede: "What it actually costs to chase a Team GB vest. Four episodes on funding, sacrifice and the long road to selection.",
     episodes: [
       // newest first — add new episodes above this line
-      { yt: 'YOUR_VIDEO_ID_TEAMGB', label: 'Episode 1' }
+      { yt: "YOUR_VIDEO_ID_TEAMGB", label: "Episode 1" }
     ]
   }
 ];
@@ -996,10 +1003,10 @@ const series = [
 // the 4-wide grid below the series rows.
 const allWork = [
   // newest first — add new films above this line
-  { yt: 'YOUR_VIDEO_ID_LOUISASWANN', tag: 'Athlete Profile · 13 min', title: 'From Track to Road | Louisa Swann' },
-  { yt: 'YOUR_VIDEO_ID_LUCARELAY', tag: 'Race Day Film · 24 min', title: 'LUCA XC Relay Championships' },
-  { yt: 'YOUR_VIDEO_ID_SCULLYPHYSIO', tag: 'Brand Film · 10 min', title: 'Scully Physio' },
-  { yt: 'YOUR_VIDEO_ID_JAMIELILLEY', tag: 'Athlete Profile · 15 min', title: 'Back on Track | Jamie Lilley' }
+  { yt: "https://youtu.be/zECPoe6kpuI", tag: "Race Day Film · 3 min", title: "Chase the Sun | Louisa Swann" },
+  { yt: "YOUR_VIDEO_ID_LUCARELAY", tag: "Race Day Film · 24 min", title: "LUCA XC Relay Championships" },
+  { yt: "YOUR_VIDEO_ID_SCULLYPHYSIO", tag: "Brand Film · 10 min", title: "Scully Physio" },
+  { yt: "YOUR_VIDEO_ID_JAMIELILLEY", tag: "Athlete Profile · 15 min", title: "Back on Track | Jamie Lilley" }
 ];
 
 /* ============================================================
@@ -1018,7 +1025,7 @@ function makeThumb(rawId, ariaLabel, extraClasses){
   const img = document.createElement('img');
   img.loading = 'lazy';
   img.alt = '';
-  img.src = 'https://img.youtube.com/vi/' + rawId + '/hqdefault.jpg';
+  img.src = 'https://img.youtube.com/vi/' + rawId + '/maxresdefault.jpg';
   img.onerror = function(){ this.style.display = 'none'; };
 
   const play = document.createElement('span');
@@ -1279,7 +1286,14 @@ document.querySelectorAll('.work-thumb[data-yt]').forEach(thumb => {
   const hasRealVideo = /^[\w-]{11}$/.test(id);
   if(img){
     if(hasRealVideo){
-      img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+      // maxresdefault is a true HD still, but not every video has one —
+      // if it 404s, fall back to the smaller (but still solid) hqdefault,
+      // and only give up on the image entirely if that fails too.
+      img.src = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+      img.onerror = function(){
+        this.onerror = function(){ this.style.display = 'none'; };
+        this.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+      };
     } else {
       img.remove();
     }
